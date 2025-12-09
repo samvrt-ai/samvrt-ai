@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* optional helpers */
+html, body, #__next { height: 100%; } 
+
+/* Slow Ken Burns zoom on hero video */
+.hero-zoom {
+  transform-origin: center center;
+  animation: heroZoom 30s ease-in-out infinite;
+}
+
+/* subtle up/down zoom loop */
+@keyframes heroZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* small fade-up animation for subtext */
+.fade-up {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.25s;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+} 
+/* subtle dotted/paper noise behind the intro (optional) */
+.section-paper {
+  background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+/* pill shadow tweak for crisp appearance */
+.feature-pill-shadow { box-shadow: 0 6px 18px rgba(2,6,23,0.24); }  
+/* subtle tiled SVG grid (corner lines) similar to Fingent's light pattern */
+.section-paper {
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'><g fill='none' stroke='%23cfcfcf' stroke-opacity='0.12' stroke-width='1'><path d='M40 0v360M0 40h360M160 0v360M0 160h360'/></g></svg>");
+  background-repeat: repeat;
+  background-position: center;
+}
+
+/* make the rounded feature panel sit slightly above the patterned panel edges */
+.features-section .rounded-2xl {
+  border-radius: 18px;
+}
+
+/* tighten pill spacing on narrow screens */
+@media (max-width: 640px) {
+  .features-section .md\\:flex-row { flex-direction: column; }
+  .features-section .md\\:gap-12 { gap: 18px; }
+}
+
+.section-paper {
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'><g fill='none' stroke='%23cfcfcf' stroke-opacity='0.1'><path d='M40 0v360M0 40h360M160 0v360M0 160h360'/></g></svg>");
+  background-repeat: repeat;
+  background-size: 480px 480px;
+}
+
+/* Make sure card container respects stacking of icon (icon absolute top) */
+article.relative { isolation: isolate; }
+
+/* optional slight lift on hover */
+article.relative:hover { transform: translateY(-6px) scale(1.01); }
+
+/* fallback for reduced motion users */
+@media (prefers-reduced-motion: reduce) {
+  article.relative { transition: none !important; transform: none !important; }
+}
+
+/* make reveal smoother & accessible-to-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .opacity-0,
+  .translate-y-6 {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+
+/* ensure alternating rows don't overlap layout on small screens */
+@media (max-width: 767px) {
+  .md\\:grid { display: block; }
+}
+
+/* accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .translate-y-6, .transition-all { transition: none !important; transform: none !important; }
+} 
+
+/* keeps icon/card stacking sane */
+article { isolation: isolate; }
+
+/* small hover lift for card (only on larger screens) */
+@media (hover: hover) and (pointer: fine) {
+  article:hover { transform: translateY(-6px) !important; }
+}
+
+/* respect reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  article, img { transition: none !important; transform: none !important; }
+}
+
+/* reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .group-hover\:scale-105,
+  .group-hover\:translate-y-0,
+  .group-hover\:-translate-y-36,
+  .transition-transform,
+  .transition-all {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ensure overlay text uses GPU transform for smoothness */
+.group { -webkit-transform: translateZ(0); transform: translateZ(0); }
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .transform, .transition-transform {
+    transition: none !important;
+  }
+}
+
+/* small motion-safe rule */
+@media (prefers-reduced-motion: reduce) {
+  .transform, .transition-transform {
+    transition: none !important;
+  }
+}
+
+/* keep logos crisp on retina and avoid weird stretching */
+img {
+  image-rendering: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .transition-all,
+  .transition-transform,
+  .duration-500,
+  .duration-700 {
+    transition: none !important;
+  }
+}
+/* Masonry-like 2-column layout using CSS columns */
+.masonry-columns {
+  column-count: 2;
+  column-gap: 36px;
+}
+
+/* Each card must avoid breaking inside a column */
+.masonry-columns .card {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  display: inline-block; /* ensures proper column sizing */
+  width: 100%;
+}
+
+/* Responsive: single column on small screens */
+@media (max-width: 768px) {
+  .masonry-columns {
+    column-count: 1;
+  }
+}
+
+/* Hide horizontal scrollbar for the stats row */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
