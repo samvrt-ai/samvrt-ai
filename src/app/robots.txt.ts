@@ -1,5 +1,4 @@
-// src/app/robots.ts
-import type { MetadataRoute } from "next";
+import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://samvrtai.com/sitemap.xml",
     host: "https://samvrtai.com",
+    sitemap: "https://samvrtai.com/sitemap.xml",
   };
 }
