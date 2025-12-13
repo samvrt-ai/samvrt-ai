@@ -28,7 +28,7 @@ export default function HRMSWelcomePage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-slate-50 to-sky-50 px-6">
       <div className="max-w-md w-full text-center bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-10">
-        <img src="/logo.png" alt="SAMVRT AI" className="h-14 mx-auto mb-6" />
+        {/* <img src="/logo.png" alt="SAMVRT AI" className="h-14 mx-auto mb-6" /> */}
 
         <h1 className="text-3xl font-bold text-slate-900 mb-2">
           Welcome to HRMS 🌸
