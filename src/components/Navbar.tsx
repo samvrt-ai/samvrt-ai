@@ -178,6 +178,17 @@ export default function Navbar() {
 
             {/* CTA & mobile hamburger */}
             <div className="flex items-center gap-4">
+
+              <Link
+    href="/hrms"
+    className={`hidden md:inline-block px-4 py-2 rounded-md border transition-all ${
+      (solid || menuOpen || mobileOpen)
+        ? "bg-transparent text-slate-700 border-slate-300 hover:bg-slate-100"
+        : "bg-transparent text-white border-white/60 hover:bg-white/10"
+    }`}
+  >
+    Employee Login
+  </Link>
               <Link
                 href="/contact"
                 className={`hidden md:inline-block px-4 py-2 rounded-md border transition-all ${ (solid || menuOpen || mobileOpen) ? "bg-white text-sky-600 border-sky-600" : "bg-transparent text-white border-white/60" }`}
@@ -223,7 +234,16 @@ export default function Navbar() {
               <Link href="#" onClick={(e) => { e.preventDefault(); setMobileOpen(false); setShowSolutions(true); }} className="py-2 border-b">Solutions</Link>
               <Link href="#" onClick={(e) => { e.preventDefault(); setMobileOpen(false); setShowIndustries(true); }} className="py-2 border-b">Industries</Link>
               <Link href="#" onClick={(e) => { e.preventDefault(); setMobileOpen(false); setShowInsights(true); }} className="py-2 border-b">Insights</Link>
-              <Link href="#" onClick={(e) => { e.preventDefault(); setMobileOpen(false); setShowAbout(true); }} className="py-2 border-b">About us</Link>
+              <Link href="#" onClick={(e) => { e.preventDefault(); setMobileOpen(false); setShowAbout(true); }} className="py-2 border-b">About us</Link> 
+
+              <Link
+  href="/hrms"
+  onClick={() => setMobileOpen(false)}
+  className="py-2 border-b font-medium text-slate-700"
+>
+  Employee Login
+</Link>
+
 
               <Link href="/contact" onClick={() => setMobileOpen(false)} className="mt-4 px-4 py-2 bg-sky-600 text-white rounded text-center">Get in touch</Link>
             </nav>
