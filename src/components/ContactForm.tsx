@@ -7,63 +7,93 @@ export default function ContactForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const whatsappNumber = "919876543210"; // change to your number
+  // 👉 CHANGE THIS TO YOUR OFFICIAL NUMBER
+  const whatsappNumber = "919876543210"; // format: countrycode + number
 
-  function sendWhatsApp() {
-    const text = `Hello, My name is ${name}.\nMy email is ${email}.\nMessage: ${message}`;
+  const sendWhatsApp = () => {
+    if (!name || !email || !message) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    const text = `Hello SAMVRT AI 👋
+My name is ${name}
+Email: ${email}
+
+Message:
+${message}`;
+
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
-  }
+  };
 
   return (
-    <form className="max-w-2xl mx-auto p-6 bg-white rounded-md shadow-sm">
-      <h3 className="text-xl font-semibold mb-4">Get in touch</h3>
+    <section className="py-16 bg-slate-50">
+      <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-sm">
+        <h2 className="text-2xl font-semibold mb-2 text-slate-900">
+          Get in touch
+        </h2>
+        <p className="text-slate-600 mb-6">
+          Tell us about your project and we’ll get back to you shortly.
+        </p>
 
-      <input
-        className="w-full border p-3 rounded mb-4"
-        placeholder="Your Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+        <div className="space-y-4">
+          <input
+            className="w-full border border-slate-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            placeholder="Your Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
 
-      <input
-        className="w-full border p-3 rounded mb-4"
-        placeholder="Your Email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+          <input
+            type="email"
+            className="w-full border border-slate-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            placeholder="Your Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-      <textarea
-        className="w-full border p-3 rounded mb-4"
-        placeholder="Your Message"
-        rows={5}
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      ></textarea>
+          <textarea
+            rows={5}
+            className="w-full border border-slate-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            placeholder="Your Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </div>
 
-      <div className="flex gap-4">
-        
-        {/* Send Message without backend */}
-        <button
-          type="button"
-          onClick={sendWhatsApp}
-          className="px-4 py-2 bg-sky-600 text-white rounded-md"
-        >
-          Send Message
-        </button>
+        <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          {/* WhatsApp */}
+          <button
+            type="button"
+            onClick={sendWhatsApp}
+            className="flex-1 bg-sky-600 text-white py-3 rounded-md hover:bg-sky-700 transition"
+          >
+            Send via WhatsApp
+          </button>
 
-        {/* Open email client */}
-        <button
-          type="button"
-          onClick={() =>
-            window.location.href = `mailto:your-email@example.com`
-          }
-          className="px-4 py-2 border rounded-md"
-        >
-          Open Email Client
-        </button>
+          {/* Email */}
+          <button
+            type="button"
+            onClick={() =>
+              (window.location.href =
+                "mailto:info@samvrtai.com?subject=Contact from SAMVRT AI Website")
+            }
+            className="flex-1 border border-slate-300 py-3 rounded-md hover:bg-slate-100 transition"
+          >
+            Email Us
+          </button>
+        </div>
+
+        <div className="mt-8 text-sm text-slate-600">
+          <p>
+            📧 <span className="font-medium">info@samvrtai.com</span>
+          </p>
+          <p className="mt-1">
+            📞 <span className="font-medium">+91 98765 43210</span>
+          </p>
+        </div>
       </div>
-    </form>
+    </section>
   );
 }
