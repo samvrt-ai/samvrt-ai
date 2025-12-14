@@ -31,7 +31,7 @@ export default function HRMSWelcomePage() {
         {/* <img src="/logo.png" alt="SAMVRT AI" className="h-14 mx-auto mb-6" /> */}
 
         <h1 className="text-3xl font-bold text-slate-900 mb-2">
-          Welcome to HRMS 🌸
+          Welcome to HRMS 
         </h1>
 
         <p className="text-slate-600 mb-8">

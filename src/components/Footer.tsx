@@ -2,7 +2,7 @@
 
 import React from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { FaYoutube, FaInstagram, FaLinkedin, FaFacebookF } from "react-icons/fa";
+import { FaYoutube, FaInstagram, FaLinkedin, FaFacebookF,FaTwitter } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
@@ -70,15 +70,16 @@ const Footer: React.FC = () => {
 
             <p className="flex items-center gap-3 text-gray-300 text-sm">
               <FaEnvelope className="text-gray-400" />
-              support@samvrt.ai
+              info@samvrtai.com
             </p>
 
             {/* Social icons */}
             <div className="mt-4">
               <span className="font-semibold text-gray-200">FOLLOW US :</span>
               <div className="flex items-center gap-3 mt-2">
-                <FaYoutube className="text-xl cursor-pointer hover:text-red-400" />
-                <FaInstagram className="text-xl cursor-pointer hover:text-pink-400" />
+                {/* <FaYoutube className="text-xl cursor-pointer hover:text-red-400" />
+                <FaInstagram className="text-xl cursor-pointer hover:text-pink-400" /> */}
+                <FaTwitter className="text-xl cursor-pointer hover:text-pink-400" />
                 <FaLinkedin className="text-xl cursor-pointer hover:text-blue-400" />
                 <FaFacebookF className="text-xl cursor-pointer hover:text-blue-300" />
               </div>
