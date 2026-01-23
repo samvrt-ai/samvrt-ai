@@ -42,7 +42,7 @@ export default function HRMSWelcomePage() {
           href="https://accounts.zoho.com/signin?servicename=ZohoPayroll&signupurl=https://www.zoho.com/in/payroll/signup/index.html"
           className="block w-full py-3 rounded-xl bg-slate-900 text-white font-medium hover:bg-slate-800 transition"
         >
-          Continue to HRMS
+          Continue with Zoho Payroll Portal
         </a>
 
         <p className="mt-6 text-xs text-slate-500">
