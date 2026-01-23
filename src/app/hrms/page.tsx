@@ -39,7 +39,7 @@ export default function HRMSWelcomePage() {
         </p>
 
         <a
-          href="https://people.zoho.in/zp"
+          href="https://accounts.zoho.com/signin?servicename=ZohoPayroll&signupurl=https://www.zoho.com/in/payroll/signup/index.html"
           className="block w-full py-3 rounded-xl bg-slate-900 text-white font-medium hover:bg-slate-800 transition"
         >
           Continue to HRMS
